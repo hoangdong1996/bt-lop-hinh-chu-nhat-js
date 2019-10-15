@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lớp hình chữ nhật</title>
+</head>
+<body>
+<canvas id="myCanvas" height="1000px" width="700px" style="border:1px solid black;" ></canvas>
+<script>
+    function Rectangle(length, widht) {
+        this.length = length;
+        this.width = widht;
+
+        this.getLength = function () {
+            return length;
+        }
+
+        this.getWidth = function () {
+            return widht;
+        }
+
+        this.getArea = function () {
+            return widht * length;
+        }
+
+        this.getPerimeter = function () {
+            return widht * length * 2;
+        }
+
+        this.setLength = function (length) {
+            return this.length = length;
+        }
+
+        this.setWidth = function (width) {
+            return this.width = width;
+        }
+
+        this.paintByCanvas = function () {
+            let ctx = document.getElementById("myCanvas").getContext("2d");
+            ctx.beginPath();
+            ctx.rect(20, 20, length, widht);
+            ctx.stroke();
+        }
+    }
+    let length = prompt("Nhập chiều dài");
+    let width = prompt("Nhập chiều rộng");
+    let ractangle = new Rectangle(length,width);
+    alert(ractangle.getArea());
+    alert(ractangle.getPerimeter());
+    ractangle.paintByCanvas();
+
+</script>
+</body>
+</html>
